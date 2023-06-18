@@ -1,11 +1,17 @@
-import Image from 'next/image'
+import InputField from '@/components/inputField/inputField';
+import SectionTitle from '@/components/sectionTitle/sectionTitle';
 
-export default function Home() {
+const HomePage  = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h2 className="">
-        Hello feed help
-      </h2>
-    </main>
-  )
-}
+    <div className='container max-w-4xl mx-auto px-4 md:px-8 my-4'>
+      <h1 className="text-center  text-2xl md:text-3xl lg:text-5xl font-bold">Todo List</h1>
+
+      <SectionTitle title='Add Todo'/>
+      <InputField/>
+      <SectionTitle title='Todo List'/>
+      <SectionTitle title='Completed Todos'/>
+    </div>
+  );
+};
+
+export default HomePage ;
