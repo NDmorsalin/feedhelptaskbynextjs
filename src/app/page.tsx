@@ -1,5 +1,6 @@
 import InputField from '@/components/inputField/inputField';
 import SectionTitle from '@/components/sectionTitle/sectionTitle';
+import TodoCard from '@/components/todoCard/todoCard';
 
 const HomePage  = () => {
   return (
@@ -9,6 +10,7 @@ const HomePage  = () => {
       <SectionTitle title='Add Todo'/>
       <InputField/>
       <SectionTitle title='Todo List'/>
+      <TodoCard/>
       <SectionTitle title='Completed Todos'/>
     </div>
   );
