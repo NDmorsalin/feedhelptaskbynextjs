@@ -1,10 +1,23 @@
-const TodoCard = () => {
+import { FC } from "react";
+
+interface Todo {
+    id:number;
+    title:string;
+}
+
+interface TodoCardProps {
+    todo:Todo;
+}
+
+const TodoCard: FC<TodoCardProps> = ({todo}) => {
     return (
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between p-4 rounded-md border  shadow-md">
             <div className="flex items-center gap-4">
                 <input type="checkbox" className="form-checkbox h-5 w-5 text-gray-600" />
                 <h4 className="text-xl font-semibold">
-                    Lorem ipsum dolor sit amet consectetur adipisicing  amet consectetur adipisicing elit. Quisquam, quos.
+                    {
+                        todo?.title
+                    }
                 </h4>
             </div>
             <div className="space-y-4">
