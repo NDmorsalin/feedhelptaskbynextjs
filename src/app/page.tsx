@@ -1,3 +1,4 @@
+import Footer from '@/Shared/Footer/Footer';
 import InputField from '@/components/inputField/inputField';
 import SectionTitle from '@/components/sectionTitle/sectionTitle';
 import Todos from '@/components/todos/todos';
@@ -17,6 +18,7 @@ const HomePage  =async () => {
       <SectionTitle title='Todo List'/>
       <Todos/>
       <SectionTitle title='Completed Todos'/>
+      <Footer/>
     </div>
   );
 };
