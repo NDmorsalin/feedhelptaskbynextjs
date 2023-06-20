@@ -19,15 +19,9 @@ export const POST = async (request: Request) => {
     console.log(body)
 
     try {
-        const todo = await Todo.create(body)
-        await todo.save()
-        return NextResponse.json({
-            status: 200,
-            todo,
-            body: {
-                message: 'adding todo'
-            }
-        })
+        const todo = await Todo.insertOne(body)
+        
+        return NextResponse.json(body)
     } catch ( error) {
         console.log(error)
         return NextResponse.json({

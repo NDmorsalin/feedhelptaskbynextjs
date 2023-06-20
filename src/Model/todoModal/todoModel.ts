@@ -1,18 +1,42 @@
-import { Schema, model } from "mongoose";
+/* import { Schema, Document, model, Model } from 'mongoose';
 
-const todoSchema = new Schema({
+interface ITodo extends Document {
+  title: string;
+  isCompleted: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const todoSchema: Schema<ITodo> = new Schema<ITodo>(
+  {
     title: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     isCompleted: {
-        type: Boolean,
-        default: false
-    }
-},{
-    timestamps: true
-});
+      type: Boolean,
+      default: false,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Todo =model('Todo', todoSchema);
+let Todo: Model<ITodo>;
+
+try {
+  Todo = model<ITodo>('todo');
+} catch (error) {
+  Todo = model<ITodo>('todo', todoSchema);
+}
 
 export default Todo;
+ */
+
+import { client } from "@/db/db.config";
+
+const database = client.db("feedhelp");
+const Todo = database.collection('todo')
+
+export default Todo
