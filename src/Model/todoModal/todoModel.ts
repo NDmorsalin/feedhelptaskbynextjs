@@ -37,6 +37,6 @@ export default Todo;
 import { client } from "@/db/db.config";
 
 const database = client.db("feedhelp");
-const Todo = database.collection('todo')
+const Todo = database.collection('todos')
 
 export default Todo

@@ -26,6 +26,7 @@ export const client = new MongoClient(process.env.MONGO_URI!, {
     deprecationErrors: true,
   }
 });
+
  const connectDb =async () => {
   try {
     // Connect the client to the server	(optional starting in v4.7)
