@@ -1,15 +1,18 @@
 import { FC } from "react";
 
 interface Todo {
-    id:number;
+    _id:number;
     title:string;
 }
 
 interface TodoCardProps {
     todo:Todo;
+    refetchTodos?:()=>void;
+    refetchComplete?:()=>void;
 }
 
-const TodoCard: FC<TodoCardProps> = ({todo}) => {
+const TodoCard: FC<TodoCardProps> = ({todo,refetchTodos,refetchComplete}) => {
+
     return (
         <div className="flex items-center justify-between p-4 rounded-md border  shadow-md">
             <div className="flex items-center gap-4">
