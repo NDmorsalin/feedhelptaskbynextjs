@@ -11,7 +11,7 @@ const addTodo = async (title:string)=>{
         body: JSON.stringify({title,isCompleted: false})
     })
     const data = await res.json();
-console.log(data)
+// console.log(data)
     if(res.ok){
         console.log('Todo added');
     }
