@@ -1,11 +1,8 @@
 'use client'
+import TodoType from '@/types/types';
 import useSWR, { mutate } from 'swr';
 
-interface Todo {
-    _id:string;
-     title:string;
-    isCompleted:boolean;
-}
+ 
 
 interface ToggleComplete {
   isCompleted:boolean;
@@ -19,8 +16,8 @@ const fetcher = async (url: string) => {
   
 
 const useTodos = () => {
-  const { data: completeTodos, error:completeError } = useSWR<Todo[]>('/api/todo/complete', fetcher);
-  const { data: incompleteTodos, error:incompleteError } = useSWR<Todo[]>('/api/todo/incomplete', fetcher);
+  const { data: completeTodos, error:completeError } = useSWR<TodoType[]>('/api/todo/complete', fetcher);
+  const { data: incompleteTodos, error:incompleteError } = useSWR<TodoType[]>('/api/todo/incomplete', fetcher);
 
   const updateToggleTodo = async (id: string, updatedTodo:ToggleComplete) => {
     await fetch(`/api/todo/${id}`, {

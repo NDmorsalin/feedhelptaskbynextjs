@@ -1,5 +1,6 @@
 
 import Todo from "@/Model/todoModal/todoModel";
+import connectDb from "@/db/db.config";
 import { NextResponse } from "next/server";
 /* const dummyData = [
     {
@@ -28,11 +29,11 @@ import { NextResponse } from "next/server";
         isCompleted: false
     },] */
     export const GET = async (request: Request) => {
-        // await connectDb()
+        await connectDb()
     
         try {
-            const incompleteTodos = await Todo.find({isCompleted:false}).toArray()
-            // console.log(incompleteTodos)
+            const incompleteTodos = await Todo.find({isCompleted:false})
+            console.log('from incomplete server',incompleteTodos)
             return NextResponse.json( incompleteTodos,{
                 status: 200,
                

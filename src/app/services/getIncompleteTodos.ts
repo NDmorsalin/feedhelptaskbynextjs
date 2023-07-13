@@ -1,14 +1,11 @@
 import Todo from "@/Model/todoModal/todoModel";
+import TodoType from "@/types/types";
 
 const getIncompleteTodos =async() => {
     // await connectDb()
-    interface TodoType {
-        _id:string;
-         title:string;
-        isCompleted:boolean;
-    }
+   
     try {
-        const incompleteTodos  = await Todo.find({ isCompleted: false}).toArray()
+        const incompleteTodos  = await Todo.find({ isCompleted: false})
         // console.log(incompleteTodos)
         const transformedTodos: TodoType[] = incompleteTodos.map(todo => {
             return {

@@ -8,9 +8,9 @@ export const POST = async (request: Request) => {
     // console.log(body)
 
     try {
-        const todo = await Todo.insertOne(body)
+        const todo = await Todo.create(body)
         // console.log(todo)
-        
+        todo.save()
         return NextResponse.json(body)
     } catch ( error) {
         console.log(error)

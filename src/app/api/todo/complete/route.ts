@@ -3,10 +3,12 @@ import connectDb from "@/db/db.config"
 import { NextResponse } from "next/server"
 
 export const GET = async (request: Request) => {
-    // await connectDb()
+    await connectDb()
 
     try {
-        const completeTodos = await Todo.find({isCompleted:true}).toArray()
+        const completeTodos = await Todo.find({isCompleted:true})
+        console.log('from complete server',completeTodos)
+
         return NextResponse.json(completeTodos,{
             status: 200,           
         })

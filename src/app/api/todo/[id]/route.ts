@@ -16,7 +16,7 @@ export const PUT = async (request: Request,  context: Context) => {
         const todo = await Todo.updateOne(query, {$set:{
             isCompleted: body.isCompleted
         }})
-        console.log(todo)
+        console.log('update todo',todo)
         
         return NextResponse.json({
             message:'put request'
@@ -38,7 +38,7 @@ export const PUT = async (request: Request,  context: Context) => {
 
 export const DELETE = async (request: Request,  context: Context) => {
     // await connectDb()
-    console.log(context)
+    console.log('delete',context)
     const body = await request.json()
     // console.log(body)
 
