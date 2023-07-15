@@ -21,6 +21,10 @@ const TodoCard = ({ todo }: { todo: TodoType }) => {
     await todoValue?.updateTodo?.(todo._id,e.target.checked);
   };
 
+  const handleDelete = async () => {
+    await todoValue?.deleteTodo?.(todo._id);
+  };
+
   return (
     <div className=" p-4 rounded-md border  shadow-md">
       <div className="flex items-center gap-4">
@@ -71,7 +75,7 @@ const TodoCard = ({ todo }: { todo: TodoType }) => {
             Edit
           </button>
         )}
-        <button className="py-2 px-4 rounded-md bg-gradient-to-tl from-red-400 to-red-500 block">
+        <button onClick={handleDelete} className="py-2 px-4 rounded-md bg-gradient-to-tl from-red-400 to-red-500 block">
           Delete
         </button>
       </div>

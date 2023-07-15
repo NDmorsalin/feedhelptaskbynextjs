@@ -25,6 +25,10 @@ const TodoProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
   };
   const deleteTodo = async (id: string = "") => {
+
+    const newTodos = todos.filter((todo) => todo._id !== id);
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
     
   };
   const updateTodo = async (id: string = "",checked:boolean, task?: string) => {
