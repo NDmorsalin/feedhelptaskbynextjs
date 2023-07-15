@@ -9,5 +9,5 @@ export interface TodoContextType {
     getTodos: () => Promise<void>;
     addTodo: (task: string) => Promise<void>;
     deleteTodo: (id: string) => Promise<void>;
-    updateTodo: (id: string) => Promise<void>;
+    updateTodo: (id: string,checked:boolean,task?:string) => Promise<void>;
 }

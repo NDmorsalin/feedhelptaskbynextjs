@@ -24,11 +24,13 @@ const TodoProvider = ({ children }: { children: ReactNode }) => {
     setTodos([...todos, newTodo]);
     localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
   };
-  const deleteTodo = async (id: string = "") => {};
-  const updateTodo = async (id: string = "", task?: string) => {
+  const deleteTodo = async (id: string = "") => {
+    
+  };
+  const updateTodo = async (id: string = "",checked:boolean, task?: string) => {
     const updatedTodos = todos.map((todo) => {
       if (todo._id === id) {
-        return { ...todo, completed: !todo.completed, task: task || todo.task };
+        return { ...todo, completed: checked, task: task || todo.task };
       }
       return todo;
     });
